@@ -4,7 +4,7 @@ import { WebSocket } from 'ws'
 
 const PING_INTERVAL = 10_000
 const MAX_RECONNECT_ATTEMPTS = 10
-const RECONNECT_INTERVAL = 10_000
+const RECONNECT_INTERVAL = 30_000
 
 let reconnectAttempts = 0
 let pingInterval: NodeJS.Timeout | null = null
