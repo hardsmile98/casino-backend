@@ -2,7 +2,7 @@ import express from 'express'
 import { WebSocketServer } from 'ws'
 import cors from 'cors'
 import { config } from '@/constants'
-import { startPragmatic } from '@/modules/pragmatic'
+import { startPragmatic, wssPragmatic } from '@/modules/pragmatic'
 import { getResult, resetResult } from './database'
 
 const apiPort = config.API_PORT
@@ -31,7 +31,7 @@ const start = (): void => {
 
   resetResult()
 
-  let wssPragmatic = startPragmatic(sendAllClients)
+  startPragmatic(sendAllClients)
 
   wss.on('connection', ws => {
     ws.send(JSON.stringify({
@@ -47,7 +47,7 @@ const start = (): void => {
 
     resetResult()
 
-    wssPragmatic = startPragmatic(sendAllClients)
+    startPragmatic(sendAllClients)
 
     res.status(200).json({ success: true })
   })

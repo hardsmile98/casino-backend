@@ -9,12 +9,14 @@ const RECONNECT_INTERVAL = 10_000
 let reconnectAttempts = 0
 let pingInterval: NodeJS.Timeout | null = null
 
+let wssPragmatic: WebSocket
+
 const startPragmatic = (sendAllClients: (data: any) => void): WebSocket => {
   if (config.WS_PRAGMATIC === undefined) {
     throw new Error('WS_PRAGMATIC is not defined')
   }
 
-  const wssPragmatic = new WebSocket(config.WS_PRAGMATIC, {})
+  wssPragmatic = new WebSocket(config.WS_PRAGMATIC, {})
 
   wssPragmatic.onopen = () => {
     console.log('Pragmatic connected')
@@ -120,4 +122,4 @@ const startPragmatic = (sendAllClients: (data: any) => void): WebSocket => {
   return wssPragmatic
 }
 
-export { startPragmatic }
+export { startPragmatic, wssPragmatic }
