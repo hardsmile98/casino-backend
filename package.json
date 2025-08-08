@@ -1,30 +1,35 @@
 {
-  "name": "jobs",
-  "version": "1.0.0",
-  "description": "jobs",
-  "main": "app.js",
+  "name": "gift-shop-bot",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "start": "node app.js",
-    "server": "nodemon app.js"
+    "dev": "ts-node-dev --files --respawn --inspect -r tsconfig-paths/register src/app.ts",
+    "build": "tsc && tsc-alias",
+    "start": "node dist/app.js"
   },
-  "keywords": [
-    "jobs"
-  ],
-  "author": "denis <hardsmile98@mail.ru>",
-  "license": "ISC",
   "dependencies": {
-    "config": "^3.3.1",
+    "axios": "^1.7.7",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.17.1",
-    "request": "^2.88.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
     "ws": "^8.12.0"
   },
   "devDependencies": {
-    "eslint": "^8.0.1",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0"
+    "@eslint/js": "^9.14.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/http-status-codes": "^1.2.0",
+    "@types/node": "^22.17.0",
+    "@types/ws": "^8.12.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "eslint": "^8.41.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.10",
+    "typescript": "^5.6.3"
   }
 }
